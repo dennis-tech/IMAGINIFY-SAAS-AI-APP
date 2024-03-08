@@ -1,18 +1,5 @@
 import { Schema, model, models } from "mongoose";
 
-
-export interface IImage extends Document {
-    clerkId: string;
-    email: string;
-    username: string;
-    photo: string;
-    firstName?: string;
-    lastName?: string;
-    planId: number;
-    creditBalance: number;
-}
-
-
 const UserSchema = new Schema({
     clerkId: { 
         type: String, 
@@ -50,8 +37,8 @@ const UserSchema = new Schema({
     
 });
 
-const Image = models?.Image || model('Image', UserSchema);
+const User = models?.User || model('Image', UserSchema);
 
-export default Image;
+export default User;
 
 
