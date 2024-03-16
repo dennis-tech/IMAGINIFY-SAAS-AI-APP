@@ -182,6 +182,8 @@ const TransformationForm = ({ action, data = null,
             deepMergeObjects(newTransformation, transformationConfig)
         )
 
+        setNewTransformation(null)
+
         startTransition(async () => {
             await updateCredits(userId, -1)
         })

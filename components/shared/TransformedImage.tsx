@@ -5,7 +5,8 @@ import { dataUrl, debounce, getImageSize } from '@/lib/utils'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
 
 const TransformedImage = ({ image, type, title, transformationConfig, 
-    isTransforming, setIsTransforming, hasDownload = false}: TransformedImageProps) => {
+    isTransforming, setIsTransforming, hasDownload = false}:
+     TransformedImageProps) => {
     
     const downloadHandler = () => {}
     
@@ -31,7 +32,7 @@ const TransformedImage = ({ image, type, title, transformationConfig,
         )} 
       </div>
 
-      {image?.public_id && transformationConfig ? (
+      {image?.publicId && transformationConfig ? (
         <div className="relative">
             <CldImage
                 width={getImageSize(type, image, "width")}
@@ -58,8 +59,9 @@ const TransformedImage = ({ image, type, title, transformationConfig,
                         src="/assets/icons/spinner.svg"
                         width={50}
                         height={50}
-                        alt='Transforming'
+                        alt='spinner'
                     />
+                    <p className="text-white/80">Please wait ...</p>
                 </div>
             )}
         </div>
