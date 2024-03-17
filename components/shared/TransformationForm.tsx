@@ -147,7 +147,7 @@ const TransformationForm = ({ action, data = null,
 
     setImage((prevState: any) => ({
         ...prevState,
-        aspectRation: imageSize.aspectRatio,
+        aspectRatio: imageSize.aspectRatio,
         width: imageSize.width,
         height: imageSize.height,
     }))
@@ -170,8 +170,10 @@ const TransformationForm = ({ action, data = null,
                 }
             }))
 
-            return onChangeField(value)
-         }, 1000)
+            
+         }, 1000)();
+
+         return onChangeField(value)
     }
 
 
@@ -220,7 +222,7 @@ const TransformationForm = ({ action, data = null,
                 render={({ field }) => (
                     <Select
                         onValueChange={(value) => onSelectFieldHandler(
-                        value, field.onChange)}
+                        value, field.onChange)} value={field.value}
                     >
                         <SelectTrigger className="select-field">
                             <SelectValue placeholder="Select size" />
@@ -246,7 +248,7 @@ const TransformationForm = ({ action, data = null,
                         type === 'remove' ? 'Object to remove' : 'Object to recolor'
                     }
                     className="w-full"
-                    render={(({ field }) => (
+                    render={({ field }) => (
                         <Input 
                             value={field.value}
                             className="input-field"
@@ -257,7 +259,7 @@ const TransformationForm = ({ action, data = null,
                                 field.onChange
                             )}
                         />
-                    ))}
+                    )}
                 />
                 
 
